@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------
+ * Tokens de tema (canais RGB para suportar opacidade: bg-ink/10 etc.)
+ *  paper   = fundo da página
+ *  ink     = texto, bordas e sombras duras
+ *  surface = cartões "brancos"
+ * ----------------------------------------------------------------- */
+:root {
+  --paper: 244 244 239;
+  --ink: 10 10 10;
+  --surface: 255 255 255;
+  color-scheme: light;
+}
+
+.dark {
+  --paper: 18 18 20;
+  --ink: 244 244 239;
+  --surface: 30 30 34;
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper font-display text-ink antialiased;
+    background-image: radial-gradient(rgb(var(--ink) / 0.16) 1px, transparent 1px);
+    background-size: 24px 24px;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  ::selection {
+    @apply bg-neo-yellow text-neo-black;
+  }
+
+  /* foco de teclado bem visível (acessibilidade) */
+  :focus-visible {
+    @apply outline outline-[3px] outline-offset-4 outline-neo-blue;
+  }
+  .dark :focus-visible {
+    @apply outline-neo-yellow;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  /* caixa neo-brutalista base: borda grossa + sombra dura */
+  .neo-box {
+    @apply border-3 border-ink shadow-brutal;
+  }
+
+  /* efeito "botão físico": levanta no hover e afunda no clique */
+  .neo-press {
+    @apply transition-all duration-150 ease-out
+      hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brutal-lg
+      active:translate-x-1 active:translate-y-1 active:shadow-none;
+  }
+}

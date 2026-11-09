@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vitor Gabriel — Desenvolvedor Mobile &amp; Back-end</title>
+    <meta
+      name="description"
+      content="Portfólio de Vitor Gabriel Mandira Soares: desenvolvedor mobile e back-end (React Native, Node.js, Python, PostgreSQL). Estudante de Desenvolvimento de Software Multiplataforma na Fatec Registro-SP."
+    />
+    <meta name="author" content="Vitor Gabriel Mandira Soares" />
+    <meta name="theme-color" content="#F4F4EF" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Vitor Gabriel — Desenvolvedor Mobile & Back-end" />
+    <meta
+      property="og:description"
+      content="APIs robustas e apps fluidos. Veja minha stack, projetos e como falar comigo."
+    />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
+
+    <!-- Aplica o tema salvo ANTES do React carregar (evita "flash" de tema errado) -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme");
+          var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          if (saved === "dark" || (!saved && prefersDark)) {
+            document.documentElement.classList.add("dark");
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
